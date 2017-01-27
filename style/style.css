@@ -1,0 +1,61 @@
+body {
+  background: rgba(41,47,51,0.9);
+}
+
+.modal {
+  positive: relative;
+  margin: auto;
+  width: 590px;
+  height: 198px;
+  border: 1px solid black;
+}
+
+.header {
+  height: 40px;
+  background-color: #E6E6E6;
+}
+
+.user-handle {
+    color: #989898;
+}
+
+img {
+  max-height: 100%;
+}
+
+.chevron {
+    max-height: 50%;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+}
+
+.chevron,
+.arrow-target,
+.camera {
+    color: #686868;
+}
+
+.arrow-target {
+    transform: scaleY(-1);
+}
+
+.user,
+.user-handle {
+    display: inline-block;
+    margin-bottom: 30px;
+    vertical-align: middle;
+}
+
+.tweet {
+  height: 118px;
+  padding: 15px;
+  border: 1px solid red;
+  background-color: #fff;
+  overflow: scroll;
+}
+
+.footer {
+  height: 40px;
+  background-color: #fff;
+}
