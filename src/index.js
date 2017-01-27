@@ -6,12 +6,20 @@ import TweetContent from './components/tweet-content';
 import Footer from './components/footer';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            tweet: 'test'
+        };
+    }
+
     render() {
         return (
             <div>
                 <Header/>
-                <TweetContent />
-                <Footer />
+                <TweetContent tweet={this.state.tweet} onTweetChange />
+                <Footer tweetLength={this.state.tweet.length} />
             </div>
         );
     }

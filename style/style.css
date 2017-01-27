@@ -16,6 +16,7 @@ body {
 }
 
 .user-handle {
+    margin-left: 5px;
     color: #989898;
 }
 
@@ -30,14 +31,19 @@ img {
     float: right;
 }
 
-.chevron,
-.arrow-target,
-.camera {
+.chevron {
     color: #686868;
 }
 
 .arrow-target {
     transform: scaleY(-1);
+}
+
+.arrow-target,
+.camera {
+    max-height: 65%;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .user,
@@ -49,8 +55,9 @@ img {
 
 .tweet {
   height: 118px;
-  padding: 15px;
-  border: 1px solid red;
+  width: 586px;
+  border: none;
+  resize: none;
   background-color: #fff;
   overflow: scroll;
 }
@@ -58,4 +65,11 @@ img {
 .footer {
   height: 40px;
   background-color: #fff;
+  margin-top: -4px;
+}
+
+.characters-left {
+    float: right;
+    margin-top: 15px;
+    margin-right: 10px;
 }

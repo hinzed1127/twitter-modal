@@ -1,10 +1,13 @@
 import React from 'react';
 
-const TweetContent = () => {
+const TweetContent = ({tweet}) => {
     return (
-        <div className="tweet" contenteditable="true">
-            starting point
-        </div>
+        <textarea
+            className="tweet"
+            placeholder="Tweet something!"
+            value={tweet}
+            onChange={event => console.log(event.target.value)}>
+        </textarea>
     );
 };
 
