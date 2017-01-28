@@ -11,7 +11,8 @@ module.exports = {
                 exclude: '/node_modules/',
                 loader: 'babel',
                 query: {
-                    presets: ['react', 'es2015', 'stage-1']
+                    presets: ['react', 'es2015', 'stage-1'],
+                    plugins: ['add-module-exports']
                 }
             }
         ]
@@ -22,7 +23,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         contentBase: './',
-        port: 3000
+        port: 9000
     },
     watch: true
 };

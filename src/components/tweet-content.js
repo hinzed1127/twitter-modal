@@ -1,4 +1,5 @@
-import React from 'react';
+var ContentEditable = require('react-contenteditable');
+import React, { Component } from 'react';
 
 const TweetContent = ({tweet}) => {
     return (
@@ -10,5 +11,21 @@ const TweetContent = ({tweet}) => {
         </textarea>
     );
 };
+//
+// class TweetContent extends Component {
+//     render() {
+//         return (
+//             <div
+//                 contentEditable="true"
+//                 onChange={event => this.handleChange(event.target.value)}>
+//                 {this.state.tweet}
+//             </div>
+//         )
+//     }
+//
+//     handlChange(tweet) {
+//         this.setState({tweet});
+//     }
+// }
 
 export default TweetContent;

@@ -10,9 +10,26 @@ body {
   border: 1px solid black;
 }
 
+.users {
+    margin-top: 0px;
+    margin-left: -1px;
+    padding-left: 0px;
+}
+
+.user-suggestion {
+    height: 40px;
+    width: 590px;
+    border: 1px solid black;
+    background-color: #FFF;
+}
+
 .header {
   height: 40px;
   background-color: #E6E6E6;
+}
+
+.user {
+    margin-left: 5px;
 }
 
 .user-handle {
@@ -22,6 +39,11 @@ body {
 
 img {
   max-height: 100%;
+}
+
+.twitter-logo {
+    max-height: 60%;
+    margin-bottom: 6px;
 }
 
 .chevron {
@@ -54,12 +76,21 @@ img {
 }
 
 .tweet {
-  height: 118px;
-  width: 586px;
-  border: none;
-  resize: none;
-  background-color: #fff;
-  overflow: scroll;
+    padding: 10px;
+    height: 122px;
+    width: 570px;
+    border: none;
+    resize: none;
+    background-color: #fff;
+    overflow: scroll;
+}
+
+.tweet:focus {
+    outline: none;
+}
+
+.invalid-length {
+    color:red;
 }
 
 .footer {
