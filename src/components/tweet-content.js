@@ -1,15 +1,17 @@
 var ContentEditable = require('react-contenteditable');
 import React, { Component } from 'react';
 
-const TweetContent = ({tweet}) => {
+const TweetContent = (props) => {
     return (
         <textarea
             className="tweet"
             placeholder="Tweet something!"
-            value={tweet}
-            onChange={event => console.log(event.target.value)}>
+            value={props.tweet}
+            onChange={event => props.onTweetChange(event.target.value)}>
         </textarea>
     );
+
+
 };
 //
 // class TweetContent extends Component {

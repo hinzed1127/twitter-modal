@@ -8,7 +8,7 @@ class Tweet extends Component {
         this.state = {
             html: props.tweet
         };
-        this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
     }
 
     render() {
