@@ -92,11 +92,10 @@ class App extends Component {
 
     handleSelect(keyCode) {
         let user;
-
         if (document.querySelector('.focused-mention') != null) {
-            user = document.querySelector('.focused-mention').innerText.split(' ')[0];
+            user = document.querySelector('.focused-mention').getElementsByClassName('user-handle')[0].innerText;
         } else {
-            user = document.querySelector('.user-suggestion').innerText.split(' ')[0];
+            user = document.querySelector('.user-suggestion').getElementsByClassName('user-handle')[0].innerText;
         }
 
         this.selectMention(user);
