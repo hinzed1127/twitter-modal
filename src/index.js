@@ -5,7 +5,6 @@ import searchTwitter from './services/twitter-search';
 
 import Header from './components/header';
 import TweetContent from './components/tweet-content';
-import Tweet from './components/tweet';
 import Footer from './components/footer';
 import UserSuggestions from './components/user-suggestions';
 
@@ -43,7 +42,6 @@ class App extends Component {
     onTweetChange(event) {
         var tweet = event.target.value;
         this.setState({tweet});
-        // console.log(event.target.selectionStart);
 
         const mention = this.checkMention(tweet);
 
@@ -128,9 +126,6 @@ class App extends Component {
         return (
             <div>
                 <Header/>
-                {/*<Tweet
-                    tweet={this.state.tweet}
-                    onTweetChange={this.onTweetChange} />*/}
                 < TweetContent
                     tweet={this.state.tweet}
                     onTweetChange={this.onTweetChange}

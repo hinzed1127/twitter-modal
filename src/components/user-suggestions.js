@@ -8,13 +8,6 @@ class UserSuggestions extends Component {
         this.state = {users: props.users};
     }
 
-    // componentDidMount() {
-    //     if (this.state.users.length > 0) {
-    //         var users = document.querySelector('.user-suggestion');
-    //         console.log('users');
-    //     }
-    // }
-
     setUsers() {
         if (!this.props.users) {
             return null;
