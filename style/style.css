@@ -110,3 +110,7 @@ img {
     margin-top: 15px;
     margin-right: 10px;
 }
+
+.focused-mention {
+    background-color: #E6E6E6;
+}

@@ -19,7 +19,7 @@ class App extends Component {
         };
         this.onTweetChange = this.onTweetChange.bind(this);
         this.selectMention = this.selectMention.bind(this);
-        // this.findUsername = this.findUsername.bind(this);
+        this.onKeyDown = this.onKeyDown.bind(this);
     }
 
     findUsername(username) {
@@ -30,7 +30,7 @@ class App extends Component {
 
     selectMention(selectedUser) {
         let tweetArray = this.state.tweet.split(' ')
-        tweetArray[tweetArray.length-1] = `@${selectedUser} `;
+        tweetArray[tweetArray.length-1] = `${selectedUser} `;
 
         let newTweet = tweetArray.join(' ');
 
@@ -38,19 +38,17 @@ class App extends Component {
             tweet: newTweet,
             users: []
         });
-
-        //TODO: put focus back on the textarea after selection
     }
 
-    onTweetChange(tweet) {
+    onTweetChange(event) {
+        var tweet = event.target.value;
         this.setState({tweet});
+        // console.log(event.target.selectionStart);
 
         const mention = this.checkMention(tweet);
 
         if (mention) {
             this.findUsername(mention);
-            //TODO: add focus to the list of users
-            //TODO: add keybindings (up/down arrows, tab autocomplete)
         } else {
             this.setState({users: []});
         }
@@ -69,6 +67,63 @@ class App extends Component {
             }
     }
 
+    onKeyDown(e) {
+        if (this.state.users.length > 0) {
+            e.preventDefault();
+        } else {
+            return;
+        }
+
+        switch(e.keyCode) {
+            case 9:
+                this.handleSelect(e.keyCode);
+                break;
+            case 13:
+                this.handleSelect(e.keyCode);
+                break;
+            case 38:
+                this.handleArrows(false);
+                break;
+            case 40:
+                this.handleArrows(true);
+                break;
+            default:
+                return;
+        }
+    }
+
+    handleSelect(keyCode) {
+        let user;
+
+        if (document.querySelector('.focused-mention') != null) {
+            user = document.querySelector('.focused-mention').innerText.split(' ')[0];
+        } else {
+            user = document.querySelector('.user-suggestion').innerText.split(' ')[0];
+        }
+
+        this.selectMention(user);
+    }
+
+    handleArrows(down) {
+        const direction = down ? 1 : -1;
+        const focusedMention = document.querySelector('.focused-mention');
+
+        if (this.state.users.length > 0 && focusedMention == null) {
+            document.querySelector('.user-suggestion').classList.add('focused-mention');
+        } else {
+            const userSuggestions = document.querySelectorAll('.user-suggestion');
+            const length = userSuggestions.length;
+            for (let i=0; i<length; i++) {
+                if (userSuggestions[i].classList.contains('focused-mention')){
+                    document.querySelectorAll('.user-suggestion')[i].classList.remove('focused-mention');
+                    let nextIdx = (i+direction == -1) ? length-1 : (i+direction)%length;
+                    document.querySelectorAll('.user-suggestion')[nextIdx].classList.add('focused-mention');
+                    break;
+                }
+            }
+        }
+    }
+
     render() {
         return (
             <div>
@@ -78,7 +133,8 @@ class App extends Component {
                     onTweetChange={this.onTweetChange} />*/}
                 < TweetContent
                     tweet={this.state.tweet}
-                    onTweetChange={this.onTweetChange}/>
+                    onTweetChange={this.onTweetChange}
+                    onKeyDown={this.onKeyDown}/>
                 <Footer tweetLength={this.state.tweet.length} />
                 <UserSuggestions
                     key={this.state.tweet}
