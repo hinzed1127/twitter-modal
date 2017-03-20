@@ -16,13 +16,9 @@ npm start
 
 This should automatically open a browser window serving the files. If not, navigate to <http://localhost:9000>
 
-### UI/UX
+### UX
 
-I tried to model the look of the page after the screenshot included in the spec:
-
-![alt text](./md-assets/screenshot.png)
-
-For UX, I tried to follow how twitter's UI behaves, such as the character countdown for tweets, which turns red as you meet or exceed the 140 character maximum.
+I tried to follow how twitter's UI behaves, such as the character countdown for tweets, which turns red as you meet or exceed the 140 character maximum.
 
 I also added a few keyboard shortcuts for selected mention suggestions:
 
